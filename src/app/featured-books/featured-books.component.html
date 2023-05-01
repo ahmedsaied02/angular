@@ -1,0 +1,10 @@
+<section class="featured_books">
+  <h1>FEATURED BOOKS</h1>
+  <p>x</p>
+
+  <div class="books">
+    <ng-container *ngFor="let item of data">
+      <app-book [item]="item"></app-book>
+    </ng-container>
+  </div>
+</section>

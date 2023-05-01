@@ -9,6 +9,8 @@ import { LineComponent } from './line/line.component';
 import { LandingSectionComponent } from './landing-section/landing-section.component';
 import { MouseComponent } from './mouse/mouse.component';
 import { FooterComponent } from './footer/footer.component';
+import { BookComponent } from './book/book.component';
+import { FeaturedBooksComponent } from './featured-books/featured-books.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FooterComponent } from './footer/footer.component';
     LineComponent,
     LandingSectionComponent,
     MouseComponent,
-    FooterComponent
+    FooterComponent,
+    BookComponent,
+    FeaturedBooksComponent
   ],
   imports: [
     BrowserModule,

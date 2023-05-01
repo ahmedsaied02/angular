@@ -1,0 +1,38 @@
+.featured_books {
+    background-color: #d2ecf9;
+
+  }
+  .featured_books h1 {
+    font-size: 46px;
+    text-align: center;
+    padding-top: 50px;
+    font-weight: 500;
+    color: #1f5f8b;
+  }
+  .featured_books p {
+    text-align: center;
+    font-weight: 600;
+    font-size: 82px;
+    line-height: 64px;
+    color: #1f5f8b;
+    opacity: 0.2;
+  }
+  
+  .books {
+   
+    max-width: 1256px;
+    margin: auto;
+    display: flex;
+    /* grid-template-columns: auto auto auto auto; */
+    padding: 40px 0px;
+    
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    justify-content: center;
+    
+    gap: 16px 100px ;
+    
+    /* padding: 100px 0; */
+  }
+  
