@@ -1,0 +1,126 @@
+footer {
+  background-color: #253b6e;
+}
+.footer-top {
+  padding-top: 50px;
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 20% auto auto auto auto 20%;
+}
+.footer-top h1 {
+  text-align: left;
+  font-size: 64px;
+  line-height: 60px;
+  font-weight: 400;
+}
+.footer-top h1 span {
+  position: relative;
+  /* border: solid red 1px; */
+  text-align: center;
+
+  color: #253b6e;
+  -webkit-text-stroke: 1px #d2ecf9;
+
+  font-weight: 600;
+}
+.footer-top h1 img {
+  width: 13px;
+  margin-top: 5.2px;
+  margin-left: 2.5px;
+  color: #1891ac;
+  position: absolute;
+  z-index: 100;
+}
+.stay-in-touch {
+  justify-self: end;
+}
+.footer-top > * {
+  color: #d2ecf9;
+}
+.footer-top .col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.footer-top .col h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+#logop {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 10px;
+  opacity: 0.7;
+}
+.footer-top .col p {
+  font-size: 16px;
+  opacity: 0.7;
+  font-weight: 200;
+}
+.email-bar input {
+  background: transparent;
+  border: 1px solid #d2ecf9;
+  font-size: 18px;
+  margin-right: 0;
+  outline: none;
+  color: #d2ecf9;
+  width: 200px;
+  height: 50px;
+  position: relative;
+  color: #d2ecf9;
+  padding-left: 10px;
+}
+.email-bar input:focus::placeholder {
+  color: transparent;
+}
+.email-bar input::placeholder {
+  color: #d2ecf9;
+  font-size: 18px;
+  opacity: 0.7;
+  font-weight: 400;
+}
+.email-bar button {
+  display: inline;
+  min-width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 101px;
+  border: none;
+  font-size: 21px;
+  font-weight: 500;
+  background-color: #d2ecf9;
+  color: #253b6e;
+}
+.payment-methods {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.payment-methods img {
+  width: 350px;
+}
+.footer-bottom {
+  padding-bottom: 50px;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom p {
+  color: #d2ecf9;
+  font-size: 20px;
+  font-weight: 200;
+}
+.footer-bottom .fa-regular {
+  font-size: 17px;
+  font-weight: 200;
+}
+.footer-bottom img {
+  width: 90px;
+}
