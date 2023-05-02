@@ -1,0 +1,119 @@
+
+.item-container{
+    display: flex;
+    flex-direction: row;
+    
+    
+    justify-content: center;
+    align-items: center;
+    gap: 0px 15%;
+    padding: 0px 20px 40px 20px;
+    border-bottom: 1px solid rgb(37, 59, 110, 0.5);
+}
+.item-description-img{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    
+
+}
+.cart-item-img {
+    height: 320px;
+    width: 220px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    display: flex;
+}
+.cart-item-img img{
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+
+
+.description {
+    margin-top: 15%;
+}
+
+.description h1 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #1f5f8b;
+    inline-size: 250px;
+    overflow-wrap: break-word;
+}
+
+.description p {
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: 300;
+    color: #1f5f8b;
+}
+
+
+
+.price p {
+    font-size: 30px;
+    font-weight: 400;
+    color: #1f5f8b;
+}
+
+/* .count{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+} */
+.delete button{
+    border: none;
+    font-size: 30px;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+}
+.increment-decrement form{
+    display: flex;
+    align-items: center;
+    width: 100px;
+    gap: 10px;
+  }
+  .increment-decrement form p{
+    font-size: 24px;
+    font-weight: 500;
+    background-color: transparent;
+  }
+
+  .increment-decrement input {
+    flex: 1;
+    width: 15px;
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    color: black;
+    background-color: transparent;
+    display: none;
+  }
+  .increment-decrement input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .increment-decrement button {
+    margin: 5px 0;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .increment-decrement .button-group button:hover {
+    background-color: transparent;
+  }

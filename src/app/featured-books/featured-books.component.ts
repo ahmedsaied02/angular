@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../app.component';
+import { ServicesService } from '../services.service';
+import { CartServiceService } from '../cart-service.service' ;
 
 @Component({
   selector: 'app-featured-books',
@@ -8,38 +10,15 @@ import { Book } from '../app.component';
 })
 
 export class FeaturedBooksComponent implements OnInit {
-
-  constructor() { }
-  data:Array <Book> =[
-    {
-      name:"The Art Of Not Giving A F*CK",
-      id:"1",
-      price:"150$"
-
-
-    },
-    {
-      name:"ahmed saied",
-      id:"2",
-      price:"Infinity"
-    },
-    {
-      name:"ahmed saied",
-      id:"2",
-      price:"Infinity"
-    },
-    {
-      name:"ahmed saied",
-      id:"2",
-      price:"Infinity"
-    } ,
-    {
-      name:"ahmed saied",
-      id:"2",
-      price:"Infinity"
-    }
-  ];
+  BookDataSent:Book|undefined;
+  constructor( private services :ServicesService,private carts :CartServiceService) { }
+  data= this.services.getBooks()
   ngOnInit(): void {
   }
-
+  recieve($event:Book){
+    
+    this.carts.saveData($event);
+  }
+  
+  
 }

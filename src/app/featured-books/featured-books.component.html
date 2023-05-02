@@ -4,7 +4,7 @@
 
   <div class="books">
     <ng-container *ngFor="let item of data">
-      <app-book [item]="item"></app-book>
+      <app-book [item]="item" (addToCartEmitter)="recieve($event)"></app-book>
     </ng-container>
   </div>
 </section>

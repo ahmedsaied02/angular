@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 export interface Book{
-  id:string
+  id:number
   name:string
   price:string
 }

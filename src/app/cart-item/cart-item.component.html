@@ -1,0 +1,42 @@
+<div class="item-container">
+  <div class="item-description-img">
+    <div class="cart-item-img">
+      <img src="../../assets/images/images.jpeg" alt="" />
+    </div>
+    <div class="description">
+      <h1 >{{item?.book?.name}}</h1>
+      <p>Volume 1</p>
+    </div>
+  </div>
+  <div class="count">
+    <div class="increment-decrement">
+      
+      <form >
+        <button type="button" class="increment-button" (click)="increment()">
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </button>
+        <input
+          
+          type="number"
+          id="quantity"
+          name="count"
+          
+          [formControl]="productCount"
+        />
+        <p>{{productCount.value}}</p>
+        <button type="button" class="decrement-button" (click)="decrement()" [disabled]="productCount.value == 1">
+            <fa-icon [icon]="faMinus"></fa-icon>
+          </button>
+      </form>
+
+      
+    </div>
+  </div>
+  <div class="price">
+    <p>{{item?.book?.price}}</p>
+  </div>
+  <div class="delete">
+    <button (click)="delete(item)"><fa-icon [icon]="faTrash"></fa-icon></button>
+  </div>
+  
+</div>

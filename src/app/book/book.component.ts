@@ -1,5 +1,5 @@
-import { Component, OnInit ,Input} from '@angular/core';
-import { Book } from '../app.component';
+import { Component, OnInit ,Input,Output,EventEmitter, Injectable} from '@angular/core';
+import { Book  } from '../app.component';
 
 
 @Component({
@@ -7,22 +7,17 @@ import { Book } from '../app.component';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
+@Injectable()
 export class BookComponent implements OnInit {
-  @Input()  item:Book={
-    name: "",
-    id:"",
-    price:""
-  };
-  
+  @Input()  item:Book|undefined;
+  @Output() addToCartEmitter = new EventEmitter <Book>;
   constructor() {
     
    }
   
   ngOnInit(): void {
   }
-  addToCart(){
-    console.log("added");
-    // export the object to the cart page
-    
+  addToCart(item:Book){
+    this.addToCartEmitter.emit(item)
   }
 }

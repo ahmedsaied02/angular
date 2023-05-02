@@ -11,6 +11,9 @@ import { MouseComponent } from './mouse/mouse.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookComponent } from './book/book.component';
 import { FeaturedBooksComponent } from './featured-books/featured-books.component';
+import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,16 @@ import { FeaturedBooksComponent } from './featured-books/featured-books.componen
     MouseComponent,
     FooterComponent,
     BookComponent,
-    FeaturedBooksComponent
+    FeaturedBooksComponent,
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
