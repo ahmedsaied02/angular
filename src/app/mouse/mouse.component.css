@@ -1,10 +1,10 @@
 .mouse{
     width: 31.2px;
     height: 52.8px;
-  
+   
     position: absolute;
     bottom: 26px;
-    left: 285px;
+    left: 50%;
     background: #4e5559 linear-gradient(transparent 0%,
                                         transparent 50%,
                                         #ffffff 50%,

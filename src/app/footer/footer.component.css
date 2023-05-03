@@ -3,10 +3,13 @@ footer {
 }
 .footer-top {
   padding-top: 50px;
-  width: 90%;
+  width: 98vw;
   margin: auto;
   display: grid;
-  grid-template-columns: 20% auto auto auto auto 20%;
+  grid-template-columns: 20% auto auto auto  20%;
+  gap: 5% ;
+  row-gap: 15%;
+  padding: 50px 3%;
 }
 .footer-top h1 {
   text-align: left;
@@ -44,7 +47,7 @@ footer {
   align-items: flex-start;
 }
 .footer-top .col h3 {
-  font-size: 22px;
+  font-size: 2em;
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -55,9 +58,13 @@ footer {
   opacity: 0.7;
 }
 .footer-top .col p {
-  font-size: 16px;
+  font-size: 1em;
   opacity: 0.7;
   font-weight: 200;
+}
+.email-bar{
+  display: flex;
+  gap: 0;
 }
 .email-bar input {
   background: transparent;
@@ -66,7 +73,7 @@ footer {
   margin-right: 0;
   outline: none;
   color: #d2ecf9;
-  width: 200px;
+  width: 150px;
   height: 50px;
   position: relative;
   color: #d2ecf9;
@@ -85,8 +92,8 @@ footer {
   display: inline;
   min-width: 50px;
   height: 50px;
-  position: absolute;
-  right: 101px;
+  /* position: absolute; */
+  /* right: 101px; */
   border: none;
   font-size: 21px;
   font-weight: 500;
@@ -123,4 +130,56 @@ footer {
 }
 .footer-bottom img {
   width: 90px;
+}
+#StayInTouch{
+  position: absolute;
+  right: 1%;
+}
+@media (max-width:1060px) {
+  #StayInTouch{
+    display: none;
+  }
+  .footer-top{
+    grid-template-columns: 20% auto auto auto ;
+  } 
+}
+@media (max-width:950px) {
+  .footer-top .col h3{
+    font-size: 1.8em;
+  }
+  .footer-top .col p{
+    font-size: 0.9em;
+  }
+}
+@media (max-width:850px) {
+  .footer-top .col h3{
+    font-size: 1.7em;
+  }
+  .footer-top .col p{
+    font-size: 0.8em;
+  }
+}
+@media (max-width:830px) {
+  .footer-top{
+    grid-template-columns: 30% auto auto ;
+    grid-template-rows: auto ;
+  }
+  .bookSoulsTitle{
+    grid-row-start: 1;
+    grid-row-end: 2;
+  } 
+  .item3{
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  
+}
+@media (max-width:650px) {
+  .footer-top{
+    grid-template-columns: auto auto ;
+    grid-template-rows: auto auto ;
+  }
+  .footer-bottom p{
+    font-size: 14px;
+  }
 }
