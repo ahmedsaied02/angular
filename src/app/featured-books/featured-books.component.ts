@@ -18,6 +18,7 @@ export class FeaturedBooksComponent implements OnInit {
   recieve($event:Book){
     
     this.carts.saveData($event);
+    this.carts.total();
   }
   
   

@@ -1,11 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
 
 
   header {
@@ -14,15 +7,36 @@
     background-color: #253b6e;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-  header p {
+  header .signIn {
     text-align: right;
-    font-size: 13px;
-    margin-right: 20px;
+    font-size: 15px;
+    
     color: #d2ecf9;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 1%;
+    top: 1%;
   }
-  header p a {
+  header .signIn a {
     text-decoration: none;
     color: #d2ecf9;
+  }
+  header .signIn a fa-icon{
+    font-size: 20px;
+    
+  }
+  header .signIn .cartLogo{
+    position: relative;
+  }
+  header .signIn .cartLogo h6{
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    background-color: #1891ac;
+    width: 50%;
+    text-align: center;
+    border-radius: 50%;
   }
  
    h1 {
@@ -30,6 +44,7 @@
     font-weight: 400;
     color: #d2ecf9;
     text-align: center;
+    margin-top: 30px;
   }
    h1 span {
     position: relative;

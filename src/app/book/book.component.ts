@@ -9,6 +9,7 @@ import { Book  } from '../app.component';
 })
 @Injectable()
 export class BookComponent implements OnInit {
+  
   @Input()  item:Book|undefined;
   @Output() addToCartEmitter = new EventEmitter <Book>;
   constructor() {
@@ -19,5 +20,19 @@ export class BookComponent implements OnInit {
   }
   addToCart(item:Book){
     this.addToCartEmitter.emit(item)
+  }
+  buttonColor ="#d2ecf9";
+  originalColor:string='';
+  changeColor(){
+    
+    this.originalColor = this.buttonColor;
+
+    
+    this.buttonColor = '#1f5f8b';
+
+    
+    setTimeout(() => {
+      this.buttonColor = this.originalColor;
+    }, 200);
   }
 }

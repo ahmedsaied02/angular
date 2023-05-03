@@ -11,7 +11,8 @@
   }
   
   .book:hover button {
-    color: #1f5f8b;
+   color: #1f5f8b;
+    cursor: pointer;
   }
   
   .book h1 {

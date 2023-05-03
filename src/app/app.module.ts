@@ -14,6 +14,7 @@ import { FeaturedBooksComponent } from './featured-books/featured-books.componen
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SwiperMainComponent } from './swiper-main/swiper-main.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BookComponent,
     FeaturedBooksComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    SwiperMainComponent,
+    
   ],
   imports: [
     BrowserModule,

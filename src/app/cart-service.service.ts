@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './app.component';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,32 @@ export class CartServiceService {
       }else{
         this.myMap.set(book.id,{book,count:x.count+1})
       }
-      console.log(this.myMap);
+      
       
     
   }
   reciveData(){
     return this.myMap;
+  }
+  myVariable = new BehaviorSubject<number>(0);
+  total(){
+     
+    let totalNum:number=0;
+    for(let value of this.myMap.values()){
+      totalNum += value.count;
+    }
+    
+   
+    this.myVariable.next(totalNum);
+    
+    
+  }
+  subtractNumber(value: number) {
+    let lastValue = this.myVariable.value;
+    this.myVariable.next(lastValue-value);
+  }
+  addNumber(value:number){
+    let lastValue = this.myVariable.value;
+    this.myVariable.next(lastValue+value);
   }
 }
