@@ -13,7 +13,7 @@
     <div class="increment-decrement">
       
       <form >
-        <button type="button" class="increment-button" (click)="increment()">
+        <button type="button" class="increment-button" (click)="increment(item)">
             <fa-icon [icon]="faPlus"></fa-icon>
           </button>
         <input
@@ -25,7 +25,7 @@
           [formControl]="productCount"
         />
         <p>{{productCount.value}}</p>
-        <button type="button" class="decrement-button" (click)="decrement()" [disabled]="productCount.value == 1">
+        <button type="button" class="decrement-button" (click)="decrement(item)" [disabled]="productCount.value == 1">
             <fa-icon [icon]="faMinus"></fa-icon>
           </button>
       </form>

@@ -24,18 +24,20 @@ export class CartItemComponent implements OnInit {
   
   productCount = new FormControl(this.num, [Validators.required, Validators.min(1)]);
   
-  increment() {
+  increment(item:any) {
     let count = this.productCount.value || 0;
     this.productCount.setValue((count ?? 0) + 1);
     this.carts.addNumber(1);
+    item.count++
   }
 
-  decrement() {
+  decrement(item:any) {
     let count = this.productCount.value||0;
     if ((count ?? 0) > 1) {
       this.productCount.setValue((count ?? 0) - 1);
     }
     this.carts.subtractNumber(1);
+    item.count--
   }
   
   ngOnInit(): void {
@@ -45,6 +47,8 @@ export class CartItemComponent implements OnInit {
   delete(item:any){
     
     this.deleteEmitter.emit(item.book.id);
+    
+    
     this.carts.subtractNumber(item.count);
   }
 }
