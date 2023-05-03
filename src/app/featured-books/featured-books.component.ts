@@ -12,7 +12,7 @@ import { CartServiceService } from '../cart-service.service' ;
 export class FeaturedBooksComponent implements OnInit {
   BookDataSent:Book|undefined;
   constructor( private services :ServicesService,private carts :CartServiceService) { }
-  data= this.services.getBooks()
+  data= this.services.getFeaturedBooks()
   ngOnInit(): void {
   }
   recieve($event:Book){

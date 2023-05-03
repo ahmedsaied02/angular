@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { register } from 'swiper/element/bundle';
 export interface Book{
   id:number
   name:string
@@ -11,4 +12,10 @@ export interface Book{
 })
 export class AppComponent {
   title = 'BookSouls';
+
+  ngAfterViewInit(): void {
+
+    register();
+
+  }
 }

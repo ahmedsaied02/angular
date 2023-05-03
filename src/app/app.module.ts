@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +14,12 @@ import { FeaturedBooksComponent } from './featured-books/featured-books.componen
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SwiperMainComponent } from './swiper-main/swiper-main.component';
+import { ImagesCollectionComponent } from './images-collection/images-collection.component';
+import { NewlyAddedComponent } from './newly-added/newly-added.component';
+import { AboutComponent } from './about/about.component';
+import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +33,13 @@ import { SwiperMainComponent } from './swiper-main/swiper-main.component';
     FeaturedBooksComponent,
     CartComponent,
     CartItemComponent,
-    SwiperMainComponent,
+    ImagesCollectionComponent,
+    NewlyAddedComponent,
+    AboutComponent,
+    SignInPageComponent,
+   
+    
+   
     
   ],
   imports: [

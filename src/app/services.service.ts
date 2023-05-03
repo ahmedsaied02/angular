@@ -36,7 +36,10 @@ export class ServicesService {
   ];
   constructor() { }
 
-  getBooks(){
+  getFeaturedBooks(){
+    return this.data
+  }
+  getNewlyAddedBooks(){
     return this.data
   }
   gerBookById(id:number){
