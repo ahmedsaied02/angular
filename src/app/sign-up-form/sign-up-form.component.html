@@ -9,7 +9,7 @@
       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
       [ngClass]="{ 'is-invalid': email.touched && email.invalid }"
       required
-      (change)="changed(email)"
+     
     />
     <div class="text-danger" *ngIf="email.touched && email.invalid">
       Invalid Email!

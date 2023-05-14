@@ -1,10 +1,29 @@
 .bodyyy{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 35% 65%;
     
 }
+@media(max-width:1000px){
+   .bodyyy{
+      grid-template-columns: auto;
+   }
+   .left{
+      display: none;
+   }
+   .bottom p{
+      text-align: center;
+   }
+}
+@media(max-width:600px){
+   .google{
+      gap: 15px;
+   }
+   .bottom form button{
+      width: 200px;
+   }
+}
 .left{
-    width: 35%;
+    width: 100%;
     background-color: #253b6e;
 }
 .left h1{
@@ -42,7 +61,7 @@
     user-select: none;
 }
 .right{
-    width: 65%;
+    width: 100%;
     background-color: #d2ecf9;
 }
 .right .top{
