@@ -1,0 +1,70 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <p>Email Address</p>
+    <input
+      type="email"
+      class="form-control"
+      name="email"
+      ngModel
+      #email="ngModel"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      [ngClass]="{ 'is-invalid': email.touched && email.invalid }"
+      required
+      (change)="changed(email)"
+    />
+    <div class="text-danger" *ngIf="email.touched && email.invalid">
+      Invalid Email!
+    </div>
+
+    <div class="pass">
+      <div class="password">
+        <p>Password</p>
+        
+      </div>
+      <div class="show">
+        <input
+          type="{{ showPassword ? 'text' : 'password' }}"
+          class="form-control"
+          name="password"
+          ngModel
+          #password="ngModel"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          required
+          [ngClass]="{ 'is-invalid': password.touched && password.invalid }"
+        />
+        <p (click)="showPassword = !showPassword" class="showPassword">
+          <fa-icon [icon]="faEye"></fa-icon>
+        </p>
+      </div>
+      <div class="text-danger" *ngIf="password.touched && password.invalid">
+        Password must contain at least one uppercase letter, one lowercase
+        letter, one digit, and be at least 8 characters long.
+      </div>
+    </div>
+    <div class="pass">
+      <div class="password">
+        <p>Confirm Password</p>
+        
+      </div>
+      <div class="show">
+        <input
+          type="{{ showPassword ? 'text' : 'password' }}"
+          class="form-control"
+          name="Cpassword"
+          ngModel
+          #Cpassword="ngModel"
+          
+          required
+          [ngClass]="{ 'is-invalid': Cpassword.touched && Cpassword.invalid }"
+        />
+        <p (click)="showPassword = !showPassword" class="showPassword">
+          <fa-icon [icon]="faEye"></fa-icon>
+        </p>
+      </div>
+      <div class="text-danger" *ngIf="Cpassword.value != password.value">
+        Passwords doesn't match
+      </div>
+    </div>
+    <div>
+      <button type="submit" [disabled]="f.invalid">Sign Up</button>
+    </div>
+  </form>

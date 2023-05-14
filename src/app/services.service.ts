@@ -43,6 +43,12 @@ export class ServicesService {
     return this.data
   }
   gerBookById(id:number){
-
+    let item:Book|undefined;
+    for(let i = 0;i<this.data.length;i++){
+      if(this.data[i].id == id){
+        item = this.data[i];
+      }
+    }
+    return item
   }
 }

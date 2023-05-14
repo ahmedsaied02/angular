@@ -1,0 +1,59 @@
+ form{
+    display: flex;
+    flex-direction: column;
+    
+ }
+  form *{
+    margin-top: 15px;
+ }
+  form input{
+    background-color: rgb(31, 95, 139,0.2);
+    
+    border-radius: 15px;
+    text-decoration: none;
+    border: none;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #1F5F8B;
+    font-size: 18px;
+    padding: 10px 20px;
+    outline: none;
+    width: 100%;
+ }
+  form .pass{
+    width: 100%;
+ }
+  form p{
+    font-size: 24px;
+ }
+  form .pass .password{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+ }
+  form button{
+    border: none;
+    background: linear-gradient(90deg,#1891AC,#188FAB,#1A84A4,#1C779B);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #d2ecf9;
+    font-size: 22px;
+    text-align: center;
+    padding: 10px 20px;
+    width: 35%;
+    
+ }
+  form .pass .password a{
+    color: #FF6582;
+    text-decoration: none;
+ }
+ .show {
+   position: relative;
+ }
+ .showPassword{
+   position: absolute;
+   right: 15px;
+   
+   top: -7px;
+   cursor: pointer;
+ }

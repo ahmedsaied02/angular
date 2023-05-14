@@ -18,6 +18,8 @@ import { ImagesCollectionComponent } from './images-collection/images-collection
 import { NewlyAddedComponent } from './newly-added/newly-added.component';
 import { AboutComponent } from './about/about.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
+import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
+import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 
 
 
@@ -37,6 +39,8 @@ import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
     NewlyAddedComponent,
     AboutComponent,
     SignInPageComponent,
+    SignInFormComponent,
+    SignUpFormComponent,
    
     
    
