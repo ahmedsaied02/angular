@@ -4,26 +4,19 @@
     
 }
 @media(max-width:1000px){
+   .left{
+      display: none;
+
+   }
    .bodyyy{
       grid-template-columns: auto;
    }
-   .left{
-      display: none;
-   }
-   .bottom p{
-      text-align: center;
-   }
-}
-@media(max-width:600px){
    .google{
-      gap: 15px;
-   }
-   .bottom form button{
-      width: 200px;
+      gap: 5%;
    }
 }
 .left{
-    width: 100%;
+    width:100%;
     background-color: #253b6e;
 }
 .left h1{
@@ -213,6 +206,6 @@
    position: absolute;
    right: 5%;
    
-   top: 2px;
+   top: -8px;
    cursor: pointer;
  }

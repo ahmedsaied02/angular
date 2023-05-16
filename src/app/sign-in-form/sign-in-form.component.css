@@ -43,7 +43,6 @@
     width: 35%;
     
  }
-
   form .pass .password a{
     color: #FF6582;
     text-decoration: none;
@@ -53,8 +52,8 @@
  }
  .showPassword{
    position: absolute;
-   right: 15px;
+   right: 5%;
    
-   top: -7px;
+   top: -5px;
    cursor: pointer;
  }

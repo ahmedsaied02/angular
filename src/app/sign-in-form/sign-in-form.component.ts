@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgControl, NgForm } from '@angular/forms';
+import { NgControl, NgForm ,FormControl,FormGroup,Validators} from '@angular/forms';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,16 +10,37 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 export class SignInFormComponent implements OnInit {
   showPassword = false;
   faEye=faEye;
-  constructor() { }
-
+  signInForm:any;
+  passwordReg="[a-zA-Z]*$";
+  constructor() { 
+    this.signInForm = new FormGroup({
+      email: new FormControl('',[
+        Validators.required,
+        Validators.email
+      ]),
+      password:new FormControl('',[
+        Validators.required,
+        Validators.minLength(8)
+      ])
+    });
+  }
+  passChange(){
+    // console.log(this.password.errors?.minlength);
+    console.log(this.password.errors);
+    
+    
+  }
+  get email(){
+    return this.signInForm.get("email");
+  }
+   get password(){
+    return this.signInForm.get("password");
+  }
   ngOnInit(): void {
   }
-  onSubmit(f:NgForm){
-    console.log(f.value);
+  onSubmit(){
+    console.log(this.signInForm.value);
     
   }
-  changed(email:NgControl){
-    console.log(email.invalid);
-    
-  }
+ 
 }

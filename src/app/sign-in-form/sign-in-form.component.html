@@ -1,39 +1,51 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <p>Username or Email Address</p>
-    <input
-      type="email"
-      class="form-control"
-      name="email"
-      ngModel
-      #email="ngModel"
-      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-      [ngClass]= " {'is-invalid': email.touched && email.invalid} "
-      required
-      (change)="changed(email) "
-    />
-    <div class="text-danger" *ngIf="email.touched && email.invalid">Invalid Email!</div>
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <p>Username or Email Address</p>
+  <input
+    type="email"
+    class="form-control"
+    
+    [ngClass]="{ 'is-invalid': email.touched && email.invalid }"
+    required
+    formControlName="email"
+    
+  />
+  <div class="text-danger" *ngIf="email.touched && email.invalid">
+    Invalid Email!
+  </div>
 
-    <div class="pass">
-      <div class="password">
-        <p>Password</p>
-        <a href="#">Forgot Password?</a>
-      </div>
-      <div class="show">
+  <div class="pass">
+    <div class="password">
+      <p>Password</p>
+      <a href="#">Forgot Password?</a>
+    </div>
+    <div class="show">
       <input
-        type="{{showPassword ? 'text' : 'password'}}"
+        type="{{ showPassword ? 'text' : 'password' }}"
         class="form-control"
-        name="password"
-        ngModel
-        #password="ngModel"
-        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        (change)="passChange()"
         required
-        [ngClass]="{'is-invalid': password.touched && password.invalid}"
+        formControlName="password"
+        [ngClass]="{ 'is-invalid': password.touched && password.invalid }"
       />
-      <p (click)="showPassword = !showPassword" class="showPassword"><fa-icon [icon]="faEye"></fa-icon></p>
+      <p (click)="showPassword = !showPassword" class="showPassword">
+        <fa-icon [icon]="faEye"></fa-icon>
+      </p>
     </div>
-      <div class="text-danger" *ngIf="password.touched && password.invalid">Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 8 characters long.</div>
+    <div class="text-danger" *ngIf="password.touched && password.invalid">
+      <div *ngIf="password.errors?.pattern">
+        Password must contain at least one uppercase letter and one lowercase
+        letter .
+      </div>
+      <div *ngIf="password.errors?.minlength">
+        Password must be at least 8 characters long.
+      </div>
+      <div *ngIf="password.errors?.required">
+        Password is required.
+      </div>
+
     </div>
-    <div>
-      <button type="submit" [disabled]="f.invalid">Sign in</button>
-    </div>
-  </form>
+  </div>
+  <div>
+    <button type="submit" [disabled]="signInForm.invalid">Sign in</button>
+  </div>
+</form>

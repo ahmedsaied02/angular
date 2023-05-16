@@ -10,7 +10,7 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 export class SignInPageComponent implements OnInit {
   
   faEye=faEye;
-  showSignUp=true;
+  showSignUp=false;
   constructor() { }
   
   ngOnInit(): void {
