@@ -11,7 +11,7 @@ export class SignInFormComponent implements OnInit {
   showPassword = false;
   faEye=faEye;
   signInForm:any;
-  passwordReg="[a-zA-Z]*$";
+  
   constructor() { 
     this.signInForm = new FormGroup({
       email: new FormControl('',[
@@ -19,14 +19,12 @@ export class SignInFormComponent implements OnInit {
         Validators.email
       ]),
       password:new FormControl('',[
-        Validators.required,
-        Validators.minLength(8)
+        Validators.required
       ])
     });
   }
   passChange(){
-    // console.log(this.password.errors?.minlength);
-    console.log(this.password.errors);
+    
     
     
   }

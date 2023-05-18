@@ -1,0 +1,14 @@
+.no-page-found{
+    width: 100vw;
+    height: 100vh;
+    background-color: #d2ecf9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-page-found p{
+    text-align: center;
+    font-size: 64px;
+    color: #1f5f8b;
+    
+}

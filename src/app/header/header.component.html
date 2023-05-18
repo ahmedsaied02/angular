@@ -1,12 +1,12 @@
-<header>
+<header *ngIf="currentRoute !== '/login'">
   <div class="signIn">
-    <a href="#">Sign in </a> | <a href="#">Currency </a> |
-    <div class="cartLogo">
-      <a href="#"><fa-icon [icon]="faShoppingBag"></fa-icon></a>
+    <a routerLink="/login">Sign in </a> | <a >Currency </a> |
+    <div class="cartLogo" >
+      <a routerLink="/cart"><fa-icon [icon]="faShoppingBag"></fa-icon></a>
       <h6 *ngIf="totalCartCount>0">{{totalCartCount}}</h6>
     </div>
   </div>
-  <a href="index.html" class="back-to-home">
+  <a routerLink="/" class="back-to-home">
     <h1>
       <img src="../../assets/images/Vector_1.svg" alt="" /><span>B</span>ook
       Souls
@@ -16,15 +16,15 @@
     <div [ngClass]="navigation" class="nav-links"  >
       <fa-icon [icon]="faTimes" class="xsign x" (click)="hideMenu()"></fa-icon>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a routerLink="/">Home</a></li>
         <fa-icon [icon]="faTimes"></fa-icon>
-        <li><a href="#">Categories</a></li>
+        <li><a >Categories</a></li>
         <fa-icon [icon]="faTimes"></fa-icon>
-        <li><a href="#">About</a></li>
+        <li><a routerLink="/about">About</a></li>
         <fa-icon [icon]="faTimes"></fa-icon>
-        <li><a href="search.html">Library</a></li>
+        <li><a >Library</a></li>
         <fa-icon [icon]="faTimes"></fa-icon>
-        <li><a href="#">Promotions & Rewards</a></li>
+        <li><a >Promotions & Rewards</a></li>
       </ul>
 
       <div class="search_bar">

@@ -20,6 +20,10 @@ import { AboutComponent } from './about/about.component';
 import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { SignInFormComponent } from './sign-in-form/sign-in-form.component';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -41,6 +45,10 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
     SignInPageComponent,
     SignInFormComponent,
     SignUpFormComponent,
+    AppLayoutComponent,
+    LandingPageComponent,
+    NoPageFoundComponent,
+    ProductComponent,
    
     
    
