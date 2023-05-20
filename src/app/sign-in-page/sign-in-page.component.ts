@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgControl, NgForm } from '@angular/forms';
+
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-sign-in-page',
@@ -14,6 +15,7 @@ export class SignInPageComponent implements OnInit {
   constructor() { }
   
   ngOnInit(): void {
+    
   }
   
 }

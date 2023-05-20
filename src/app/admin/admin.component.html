@@ -1,0 +1,88 @@
+<app-line></app-line>
+<div class="main-area">
+    <div class="content-area">
+      <div class="header">
+        <h1>Manage Products</h1>
+        <hr>
+      </div>
+      <div class="container">
+        <!--Add product form-->
+        <div class="form-area">
+          <h3>Create Product</h3>
+          <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" class="form-control" formControlName="name">
+              <div *ngIf="productFormG.name.invalid && productFormG.name.touched" class="text-danger">
+                <div *ngIf="productFormG.name.errors.required">
+                  Name is required.
+                </div>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="price">Price:</label>
+              <input type="number" id="price" class="form-control" formControlName="price" (change)="pricer()">
+              <div *ngIf="productFormG.price.invalid && productFormG.price.touched" class="text-danger">
+                
+
+                
+                <div *ngIf="productFormG.price.hasError('required') ">
+                    Price is required.
+                </div>  
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea id="description" class="form-control" formControlName="description"></textarea>
+              <div *ngIf="productFormG.description.invalid && productFormG.description.touched" class="text-danger">
+                <div *ngIf="productFormG.description.errors.required">
+                  Description is required.
+                </div>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="image">Image:</label>
+              <input type="text" id="image" class="form-control" formControlName="image">
+              <div *ngIf="productFormG.image.invalid && productFormG.image.touched" class="text-danger">
+                <div *ngIf="productFormG.image.errors.required">
+                  Image is required.
+                </div>
+              </div>
+            </div>
+          
+            <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+  
+        <!--Display product area-->
+        <div class="product-display-area">
+          <h3>All Products</h3>
+          <table id="products">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>iPhone</td>
+              <td>iPhone Pro 11</td>
+              <td>$1299</td>
+              <td><button class="btn-delete">Delete</button></td>
+            </tr>
+          </table>
+          <hr>
+          <div class="action-btn-container">
+            <button class="btn-fetch">Fetch Product</button>
+            <button class="btn-clear">Clear Product</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-line></app-line>

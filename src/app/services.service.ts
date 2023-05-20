@@ -9,29 +9,33 @@ export class ServicesService {
     {
       name:"The Art Of Not Giving A F*CK",
       id:1,
-      price:"150$"
-
+      price:"150$",
+      description:"blabla"
 
     },
     {
       name:"ahmed saied",
       id:2,
-      price:"Infinity"
+      price:"Infinity",
+      description:"blabla"
     },
     {
       name:"book 2",
       id:3,
-      price:"Infinity"
+      price:"Infinity",
+      description:"blabla"
     },
     {
       name:"book 3",
       id:4,
-      price:"Infinity"
+      price:"Infinity",
+      description:"blabla"
     } ,
     {
       name:"book 4",
       id:5,
-      price:"Infinity"
+      price:"Infinity",
+      description:"blabla"
     }
   ];
   constructor() { }
@@ -47,6 +51,7 @@ export class ServicesService {
     for(let i = 0;i<this.data.length;i++){
       if(this.data[i].id == id){
         item = this.data[i];
+        
       }
     }
     return item

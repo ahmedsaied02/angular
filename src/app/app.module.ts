@@ -24,7 +24,8 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ProductComponent } from './product/product.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ProductComponent } from './product/product.component';
     LandingPageComponent,
     NoPageFoundComponent,
     ProductComponent,
+    AdminComponent,
    
     
    
@@ -59,7 +61,8 @@ import { ProductComponent } from './product/product.component';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

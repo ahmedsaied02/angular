@@ -9,6 +9,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CartComponent } from './cart/cart.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ProductComponent } from './product/product.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   // { path: '', component: LandingSectionComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'cart', component: CartComponent },
     { path: 'product/:id', component: ProductComponent },
+    { path: 'admin', component: AdminComponent },
     { path: '**', component: NoPageFoundComponent },
     
   ]}

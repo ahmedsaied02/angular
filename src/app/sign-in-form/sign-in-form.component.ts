@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgControl, NgForm ,FormControl,FormGroup,Validators} from '@angular/forms';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -12,7 +13,7 @@ export class SignInFormComponent implements OnInit {
   faEye=faEye;
   signInForm:any;
   
-  constructor() { 
+  constructor(private login:LoginService) { 
     this.signInForm = new FormGroup({
       email: new FormControl('',[
         Validators.required,
@@ -37,8 +38,18 @@ export class SignInFormComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
-    console.log(this.signInForm.value);
     
+    this.login.submitSignInForm(this.signInForm.value)
+      .subscribe(
+        response => {
+          // Handle the response from the backend if necessary
+          console.log('Form submitted successfully');
+        },
+        error => {
+          // Handle any errors that occur during the HTTP request
+          console.error('Error submitting form:', error);
+        }
+      );
   }
  
 }
