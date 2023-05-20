@@ -4,6 +4,7 @@ import { faTimes,faBars} from '@fortawesome/free-solid-svg-icons';
 import { faSearchLocation } from '@fortawesome/free-solid-svg-icons';
 import { CartServiceService } from '../cart-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private carts :CartServiceService,private route: Router) { 
+  constructor(private carts :CartServiceService,private route: Router,private auth:LoginService) { 
     
   }
   
@@ -37,5 +38,8 @@ export class HeaderComponent implements OnInit {
   }
   hideMenu() {
     this.navigation = "nonActive";
+  }
+  signOut(){
+    this.auth.SignOut();
   }
 }

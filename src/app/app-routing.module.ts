@@ -10,15 +10,20 @@ import { CartComponent } from './cart/cart.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ProductComponent } from './product/product.component';
 import { AdminComponent } from './admin/admin.component';
+import { VarifyEmailComponent } from './varify-email/varify-email.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   // { path: '', component: LandingSectionComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: SignInPageComponent },
+  {path: 'varify-email', component : VarifyEmailComponent},
+  {path: 'forgot-password', component : ForgotPasswordComponent},
   { path: '', canActivate: [AuthGuard], component: AppLayoutComponent, children: [
     
     { path: '', component: LandingPageComponent },
     { path: 'cart', component: CartComponent },
+    
     { path: 'product/:id', component: ProductComponent },
     { path: 'admin', component: AdminComponent },
     { path: '**', component: NoPageFoundComponent },

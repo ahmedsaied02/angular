@@ -26,8 +26,14 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ProductComponent } from './product/product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
-
-
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { VarifyEmailComponent } from './varify-email/varify-email.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { FirestoreModule } from '@angular/fire/firestore';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +57,8 @@ import { AdminComponent } from './admin/admin.component';
     NoPageFoundComponent,
     ProductComponent,
     AdminComponent,
+    VarifyEmailComponent,
+    ForgotPasswordComponent,
    
     
    
@@ -62,9 +70,13 @@ import { AdminComponent } from './admin/admin.component';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FirestoreModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

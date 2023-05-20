@@ -1,6 +1,6 @@
 <header *ngIf="currentRoute !== '/login'">
   <div class="signIn">
-    <a routerLink="/login">Sign in </a> | <a >Currency </a> |
+    <a routerLink="/login">Sign in </a> | <a (click)="signOut()" style="cursor: pointer;">Sign Out </a> |
     <div class="cartLogo" >
       <a routerLink="/cart"><fa-icon [icon]="faShoppingBag"></fa-icon></a>
       <h6 *ngIf="totalCartCount>0">{{totalCartCount}}</h6>

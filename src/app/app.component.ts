@@ -34,7 +34,7 @@ export class AppComponent {
     register();
   }
   shouldShowHeaderAndFooter() {
-    if(this.router.url.includes('/login')||this.router.url.includes('/about')){
+    if(this.router.url.includes('/login')||this.router.url.includes('/about')||this.router.url.includes('/varify-email')||this.router.url.includes('/forgot-password')){
       this.HeaderAndFooter = false
     }else{
       this.HeaderAndFooter = true

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgControl, NgForm ,FormControl,FormGroup,Validators} from '@angular/forms';
+import { NgControl, NgForm ,FormControl,FormGroup,Validators, FormBuilder} from '@angular/forms';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -13,7 +14,7 @@ export class SignInFormComponent implements OnInit {
   faEye=faEye;
   signInForm:any;
   
-  constructor(private login:LoginService) { 
+  constructor(public router: Router,private fb: FormBuilder,private auth:LoginService) { 
     this.signInForm = new FormGroup({
       email: new FormControl('',[
         Validators.required,
@@ -38,18 +39,14 @@ export class SignInFormComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
-    
-    this.login.submitSignInForm(this.signInForm.value)
-      .subscribe(
-        response => {
-          // Handle the response from the backend if necessary
-          console.log('Form submitted successfully');
-        },
-        error => {
-          // Handle any errors that occur during the HTTP request
-          console.error('Error submitting form:', error);
-        }
-      );
+    this.auth.SignIn(this.email.value,this.password.value).then((response) => {
+      this.router.navigate(['']);
+      
+    })
+    .catch((error) => {
+      console.error('Error signing up:', error);
+    });
+   
   }
  
 }

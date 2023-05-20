@@ -8,6 +8,9 @@ import {
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { passwordMatchValidator } from '../validators/matchPass.validators';
 import { passVal } from '../validators/passVal.validators';
+import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -21,7 +24,7 @@ export class SignUpFormComponent implements OnInit {
   signUpForm: any;
   passwordReg = '[a-zA-Z]';
 
-  constructor(fb: FormBuilder) {
+  constructor(public router: Router,private fb: FormBuilder,private auth:LoginService) {
     this.signUpForm = fb.group({
       Email: ['', [Validators.required, Validators.email]],
 
@@ -35,6 +38,15 @@ export class SignUpFormComponent implements OnInit {
   
   ngOnInit(): void {}
   onSubmit() {
-    console.log(this.signUpForm.value);
+    this.auth.SignUp(this.signUpFormGetter.Email.value,this.signUpFormGetter.password.value).then((response) => {
+      this.router.navigate(['']);
+      
+    })
+    .catch((error) => {
+      console.error('Error signing up:', error);
+    });
+    
+    
   }
 }
+
