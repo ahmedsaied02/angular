@@ -4,7 +4,7 @@
   <p>x</p>
 
   <div class="books">
-    <ng-container *ngFor="let item of data">
+    <ng-container *ngFor="let item of data|async">
       <app-book [item]="item" (addToCartEmitter)="recieve($event)"></app-book>
     </ng-container>
   </div>

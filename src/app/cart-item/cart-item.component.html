@@ -1,7 +1,7 @@
 <div class="item-container">
   <div class="item-description-img">
     <div class="cart-item-img">
-      <img src="../../assets/images/images.jpeg" alt="" />
+      <img [src]="item?.book?.Imageurl" alt="image" />
     </div>
     <div class="description">
       <h1 >{{item?.book?.name}}</h1>
@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="price">
-    <p>{{item?.book?.price}}</p>
+    <p>{{item?.book?.Price|currency}}</p>
   </div>
   <div class="delete">
     <button (click)="delete(item)"><fa-icon [icon]="faTrash"></fa-icon></button>

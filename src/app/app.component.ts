@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 export interface Book {
-  id: number;
-  name: string;
-  price: string;
-  description:string;
+  id: string;
+  Author: string;
+  Description: string;
+  Imageurl: string;
+  Price: number;
+  name:string;
 }
 @Component({
   selector: 'app-root',

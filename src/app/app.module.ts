@@ -34,6 +34,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FirestoreModule } from '@angular/fire/firestore';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     FirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    
   ],
   providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]

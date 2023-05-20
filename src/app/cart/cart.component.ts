@@ -9,7 +9,7 @@ import { CartServiceService } from '../cart-service.service';
 })
 export class CartComponent implements OnInit {
   
-  myMap = new Map<number,{book:Book, count:number}>();
+  myMap = new Map<string,{book:Book, count:number}>();
   constructor(private carts :CartServiceService) { 
     
     
@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
    this.myMap= this.carts.reciveData()
   }
-  delete($event:number){
+  delete($event:string){
     
     this.myMap.delete($event)
   }

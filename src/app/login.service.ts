@@ -7,28 +7,38 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, map, switchMap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService implements OnDestroy {
-  userData: firebase.User | null | undefined; // Save logged in user data
-  subscription: Subscription;
+export class LoginService {
+  userData: Observable<firebase.User>; // Save logged in user data
+
+  isAdmin: Observable<boolean>;
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
-    this.subscription = this.afAuth.authState.subscribe((user) => {
-      this.userData = user;
-    });
-  }
+    this.userData = this.afAuth.authState;
+    this.isAdmin = this.userData.pipe(
+      switchMap((user) => {
+        console.log(user);
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+        return afs
+          .collection('admins')
+          .doc(user.uid)
+          .get()
+          .pipe(
+            map((snapshot) => {
+              console.log(snapshot);
+
+              return snapshot.exists;
+            })
+          );
+      })
+    );
   }
 
   // Sign in with email/password
@@ -36,11 +46,9 @@ export class LoginService implements OnDestroy {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.afAuth.authState.subscribe((user) => {
-          if (user) {
-            this.router.navigate(['']);
-          }
-        });
+        if (result.user) {
+          this.router.navigate(['']);
+        }
       })
       .catch((error) => {
         window.alert(error.message);
@@ -48,18 +56,23 @@ export class LoginService implements OnDestroy {
   }
   // Sign up with email/password
   SignUp(email: string, password: string) {
+    console.log('Sign Up', email, password);
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        this.SendVerificationMail();
+        this.SendVerificationMail(result.user);
+      })
+      .catch((error) => {
+        window.alert(error.message);
       });
   }
   // Send email verfificaiton when new user sign up
-  SendVerificationMail() {
-    return this.userData
-      ?.sendEmailVerification({
+  SendVerificationMail(user: firebase.User) {
+    console.log('Email Verification', user);
+    return user
+      .sendEmailVerification({
         url: 'http://localhost:4200/',
       })
       .then(() => {
@@ -81,12 +94,8 @@ export class LoginService implements OnDestroy {
       });
   }
   // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
-    return (
-      this.userData !== null &&
-      this.userData !== undefined &&
-      this.userData.emailVerified
-    );
+  get isLoggedIn(): Observable<boolean> {
+    return this.userData.pipe(map((user) => user.emailVerified));
   }
   // get isAdmin(): boolean {
   //   // return this.userData?.metadata

@@ -6,7 +6,7 @@
 
   <div class="item">
     <ng-container *ngFor="let item of myMap| keyvalue">
-        <app-cart-item [item]="item.value" (deleteEmitter)="delete($event)"></app-cart-item>
+        <app-cart-item [item]="item?.value" (deleteEmitter)="delete($event)"></app-cart-item>
         
     </ng-container>
     <p *ngIf="myMap.size == 0" class="no-products">No Products Added Yet!</p>

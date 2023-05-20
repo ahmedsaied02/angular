@@ -1,59 +1,55 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Book } from './app.component';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
+import { Observable, Subscription, map } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ServicesService {
-  data:Array <Book> =[
-    {
-      name:"The Art Of Not Giving A F*CK",
-      id:1,
-      price:"150$",
-      description:"blabla"
+export class ServicesService implements OnInit {
+  data: Observable<Array<Book>>;
 
-    },
-    {
-      name:"ahmed saied",
-      id:2,
-      price:"Infinity",
-      description:"blabla"
-    },
-    {
-      name:"book 2",
-      id:3,
-      price:"Infinity",
-      description:"blabla"
-    },
-    {
-      name:"book 3",
-      id:4,
-      price:"Infinity",
-      description:"blabla"
-    } ,
-    {
-      name:"book 4",
-      id:5,
-      price:"Infinity",
-      description:"blabla"
-    }
-  ];
-  constructor() { }
-
-  getFeaturedBooks(){
-    return this.data
+  
+   constructor(public afs: AngularFirestore) {
+    this.data = this.afs
+      .collection<Book>('books')
+      .snapshotChanges().pipe(map((snapshot) => 
+        snapshot.map((value, i) => {
+          let val=value.payload.doc;
+          return {...val.data(),id:val.id};
+        })
+        
+      ));
   }
-  getNewlyAddedBooks(){
-    return this.data
+  
+   ngOnInit(){
+    
+  }
+  getFeaturedBooks() {
+    return this.data;
+  }
+  getNewlyAddedBooks() {
+    return this.data;
   }
   gerBookById(id:number){
-    let item:Book|undefined;
-    for(let i = 0;i<this.data.length;i++){
-      if(this.data[i].id == id){
-        item = this.data[i];
-        
-      }
+    // let item:Book|undefined;
+    // for(let i = 0;i<this.data.length;i++){
+    //   if(this.data?[i].id == id){
+    //     item = this.data[i];
+
+    //   }
+    // }
+    // return item
+    return{
+      name:"ahmed",
+      id:"g",
+      Description:"a",
+      Price:10,
+      Imageurl:"a7a",
+      Author:"ana"
     }
-    return item
   }
 }

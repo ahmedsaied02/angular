@@ -1,10 +1,10 @@
 <div class="book" *ngIf="item">
     <div class="book_card" >
-           <a [routerLink]="['/product/',item.id]"><div class="book_card_image"><img src="../../assets/images/images.jpeg" alt="" /></div></a>
+           <a [routerLink]="['/product/',item.id]"><div class="book_card_image"><img [src]=item.Imageurl alt="" /></div></a>
            <button class="Add_to_cart" [style.background-color]="buttonColor" (click)="addToCart(item);changeColor()" >Add to Cart</button>
        </div>
        
        <h1>{{item.name}}</h1>
-       <p>{{item.price}}</p>
+       <p>{{item.Price | currency}}</p>
    <div>
 </div>

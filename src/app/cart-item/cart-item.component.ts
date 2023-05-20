@@ -9,8 +9,8 @@ import { CartServiceService } from '../cart-service.service';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent implements OnInit {
-  @Input()  item:{book:Book,count:number}|undefined;
-  @Output() deleteEmitter = new EventEmitter <number>;
+  @Input()  item?:{book:Book,count:number};
+  @Output() deleteEmitter = new EventEmitter <string>;
   constructor(private carts :CartServiceService) {
     
   

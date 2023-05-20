@@ -6,7 +6,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartServiceService {
-  myMap = new Map<number,{book:Book, count:number}>();
+  myMap = new Map<string,{book:Book, count:number}>();
   constructor() { }
 
   saveData(book:Book){

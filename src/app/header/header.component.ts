@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(private carts :CartServiceService,private route: Router,private auth:LoginService) { 
     
   }
-  
+  isAdmin =this.auth.isAdmin
   faShoppingBag = faShoppingBag; 
   faTimes=faTimes;
   faBars=faBars;
