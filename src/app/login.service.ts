@@ -24,7 +24,7 @@ export class LoginService {
     this.userData = this.afAuth.authState;
     this.isAdmin = this.userData.pipe(
       switchMap((user) => {
-        console.log(user);
+        
 
         return afs
           .collection('admins')
@@ -32,7 +32,7 @@ export class LoginService {
           .get()
           .pipe(
             map((snapshot) => {
-              console.log(snapshot);
+              
 
               return snapshot.exists;
             })
@@ -70,7 +70,7 @@ export class LoginService {
   }
   // Send email verfificaiton when new user sign up
   SendVerificationMail(user: firebase.User) {
-    console.log('Email Verification', user);
+    
     return user
       .sendEmailVerification({
         url: 'http://localhost:4200/',

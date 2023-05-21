@@ -21,6 +21,6 @@ export class NewlyAddedComponent implements OnInit {
   }
   recieve($event: Book) {
     this.carts.saveData($event);
-    this.carts.total();
+    
   }
 }

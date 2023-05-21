@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Book } from '../app.component';
 import { CartServiceService } from '../cart-service.service';
+import { Observable ,map} from 'rxjs';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -9,17 +10,18 @@ import { CartServiceService } from '../cart-service.service';
 })
 export class CartComponent implements OnInit {
   
-  myMap = new Map<string,{book:Book, count:number}>();
+ 
   constructor(private carts :CartServiceService) { 
     
     
   }
-
+  myMap = this.carts.reciveData()
+  total=this.carts.total
   ngOnInit(): void {
-   this.myMap= this.carts.reciveData()
+    
   }
   delete($event:string){
+    this.carts.delete($event)
     
-    this.myMap.delete($event)
   }
 }

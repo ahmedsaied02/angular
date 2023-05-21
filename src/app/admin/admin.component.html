@@ -19,36 +19,45 @@
                 </div>
               </div>
             </div>
+            <div class="form-group">
+              <label for="Author">Author:</label>
+              <input type="text" id="Author" class="form-control" formControlName="Author">
+              <div *ngIf="productFormG.Author.invalid && productFormG.Author.touched" class="text-danger">
+                <div *ngIf="productFormG.Author.errors.required">
+                  Author Name is required.
+                </div>
+              </div>
+            </div>
           
             <div class="form-group">
-              <label for="price">Price:</label>
-              <input type="number" id="price" class="form-control" formControlName="price" (change)="pricer()">
-              <div *ngIf="productFormG.price.invalid && productFormG.price.touched" class="text-danger">
+              <label for="Price">Price:</label>
+              <input type="number" id="Price" class="form-control" formControlName="Price" >
+              <div *ngIf="productFormG.Price.invalid && productFormG.Price.touched" class="text-danger">
                 
 
                 
-                <div *ngIf="productFormG.price.hasError('required') ">
+                <div *ngIf="productFormG.Price.hasError('required') ">
                     Price is required.
                 </div>  
               </div>
             </div>
           
             <div class="form-group">
-              <label for="description">Description:</label>
-              <textarea id="description" class="form-control" formControlName="description"></textarea>
-              <div *ngIf="productFormG.description.invalid && productFormG.description.touched" class="text-danger">
-                <div *ngIf="productFormG.description.errors.required">
+              <label for="Description">Description:</label>
+              <textarea id="Description" class="form-control" formControlName="Description"></textarea>
+              <div *ngIf="productFormG.Description.invalid && productFormG.Description.touched" class="text-danger">
+                <div *ngIf="productFormG.Description.errors.required">
                   Description is required.
                 </div>
               </div>
             </div>
           
             <div class="form-group">
-              <label for="image">Image:</label>
-              <input type="text" id="image" class="form-control" formControlName="image">
-              <div *ngIf="productFormG.image.invalid && productFormG.image.touched" class="text-danger">
-                <div *ngIf="productFormG.image.errors.required">
-                  Image is required.
+              <label for="Imageurl">Imageurl</label>
+              <input type="text" id="Imageurl" class="form-control" formControlName="Imageurl">
+              <div *ngIf="productFormG.Imageurl.invalid && productFormG.Imageurl.touched" class="text-danger">
+                <div *ngIf="productFormG.Imageurl.errors.required">
+                  Imageurl is required.
                 </div>
               </div>
             </div>
@@ -66,20 +75,24 @@
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>
+              <th>Author</th>
+              <th>Imageurl</th>
               <th></th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>iPhone</td>
-              <td>iPhone Pro 11</td>
-              <td>$1299</td>
-              <td><button class="btn-delete">Delete</button></td>
+            <tr *ngFor="let item of items;let i = index">
+              <td>{{i}}</td>
+              <td>{{item.name| slice:0:10}}</td>
+              <td>{{item.Description| slice:0:10}}</td>
+              <td>{{item.Price|currency}}</td>
+              <td>{{item.Author}}</td>
+              <td>{{item.Imageurl| slice:10:16}}</td>
+              <td><button class="btn-delete" (click)="delete(i)">Delete</button></td>
             </tr>
           </table>
           <hr>
           <div class="action-btn-container">
-            <button class="btn-fetch">Fetch Product</button>
-            <button class="btn-clear">Clear Product</button>
+            <button class="btn-fetch" (click)="retrieveData()">Fetch Product</button>
+            
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ export interface Book {
   Imageurl: string;
   Price: number;
   name:string;
+  featured?:boolean;
 }
 @Component({
   selector: 'app-root',

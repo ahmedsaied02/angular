@@ -1,17 +1,33 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentData } from '@angular/fire/compat/firestore';
+import { Observable, map } from 'rxjs';
+import { Book } from './app.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
+  private dbPath = '/books';
 
-  private backendUrl = 'https://booksouls-75d72-default-rtdb.firebaseio.com/'; // Replace with your backend URL
+  BooksRef: AngularFirestoreCollection<Book>;
 
-  constructor(private http: HttpClient) { }
-
-  submitSignInForm(formData: any) {
-    let url:string =this.backendUrl+"users.json"
-    return this.http.post(url, formData);
+  constructor(private db: AngularFirestore) {
+    this.BooksRef = db.collection(this.dbPath);
   }
+
+  getAll(): AngularFirestoreCollection<Book> {
+    return this.BooksRef;
+  }
+
+  create(Book: any): any {
+    return this.BooksRef.add({ ...Book });
+  }
+
+ 
+
+  delete(id: string): Promise<void> {
+    return this.BooksRef.doc(id).delete();
+  }
+  
 }

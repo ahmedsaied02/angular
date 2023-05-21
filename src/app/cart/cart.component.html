@@ -5,11 +5,11 @@
   </div>
 
   <div class="item">
-    <ng-container *ngFor="let item of myMap| keyvalue">
+    <ng-container *ngFor="let item of myMap| keyvalue ">
         <app-cart-item [item]="item?.value" (deleteEmitter)="delete($event)"></app-cart-item>
         
     </ng-container>
-    <p *ngIf="myMap.size == 0" class="no-products">No Products Added Yet!</p>
+    <p *ngIf="(total|async)==0" class="no-products">No Products Added Yet!</p>
   </div>
 
   <div class="checkout">
