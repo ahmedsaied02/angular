@@ -40,9 +40,13 @@ export class LoginService {
       })
     );
   }
-
+  // this.afAuth.authState.subscribe((x)=>{
+  //   console.log(x);
+    
+  // })
   // Sign in with email/password
   SignIn(email: string, password: string) {
+    
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -53,6 +57,7 @@ export class LoginService {
       .catch((error) => {
         window.alert(error.message);
       });
+      
   }
   // Sign up with email/password
   SignUp(email: string, password: string) {
@@ -73,7 +78,7 @@ export class LoginService {
     
     return user
       .sendEmailVerification({
-        url: 'http://localhost:4200/',
+        url: 'https://booksouls-75d72.web.app/',
       })
       .then(() => {
         this.router.navigate(['varify-email']);

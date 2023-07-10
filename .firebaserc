@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "booksouls-75d72": {
+      "hosting": {
+        "BookSouls": [
+          "booksouls-75d72"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "booksouls-75d72"
+  }
+}
